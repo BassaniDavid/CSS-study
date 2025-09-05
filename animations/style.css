@@ -1,0 +1,261 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(32, 33, 33);
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  place-content: center;
+  gap: 20px;
+}
+
+.box {
+  border-radius: 15%;
+  margin: 100px auto;
+  width: 100px;
+  height: 100px;
+}
+
+/* prove con l hover semplice */
+#box-1 {
+  background-color: rgb(93, 81, 171);
+  transition: rotate 1s ease;
+}
+#box-1:hover {
+  rotate: 90deg;
+}
+
+#box-2 {
+  background-color: rgb(93, 81, 171);
+  transition: transform 1s ease;
+}
+#box-2:hover {
+  transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+}
+
+#box-3 {
+  background-color: rgb(93, 81, 171);
+  transition: scale 1s ease;
+}
+#box-3:hover {
+  scale: 1.2;
+}
+
+#box-4 {
+  background-color: rgb(93, 81, 171);
+  transition: transform 1s ease;
+}
+#box-4:hover {
+  transform: skewX(30deg);
+}
+
+#box-5 {
+  background-color: rgb(93, 81, 171);
+  transition: transform 1s ease;
+}
+#box-5:hover {
+  transform: skew(10deg, 45deg);
+}
+
+/* prove con hover strutturato */
+#box-6 {
+  background-color: rgb(93, 81, 171);
+  transition: rotate 1s ease, background-color 0.5s linear 0.5s;
+}
+#box-6:hover {
+  rotate: 90deg;
+  background-color: rgb(0, 255, 119);
+}
+
+#box-7 {
+  background-color: rgb(93, 81, 171);
+  transition: rotate 1s ease 0.5s, background-color 1s linear 0.5s,
+    translate 1.5s ease-in-out;
+}
+#box-7:hover {
+  rotate: 90deg;
+  translate: 0px -200px;
+  background-color: rgb(0, 195, 255);
+}
+
+#box-8 {
+  background-color: rgb(93, 81, 171);
+  transition: all 1s ease;
+}
+#box-8:hover {
+  border-radius: 50%;
+  rotate: 90deg;
+  translate: 0px -200px;
+  background-color: rgb(70, 162, 242);
+  border: 4px solid rgb(74, 74, 223);
+}
+
+#box-9 {
+  background-color: rgb(93, 81, 171);
+
+  /* proprietà da aggiungere per far avvenire l'animazione */
+  animation-name: move;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-delay: 0ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+  animation-play-state: running;
+
+  /* contraibili in:
+  animation: move 2s ease-in 0s infinite alternate both */
+}
+
+#box-9:hover {
+  animation-play-state: paused;
+}
+
+/* keyframe per stabilire l'animazione */
+@keyframes move {
+  from {
+    transform: translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-100px) rotate(270deg);
+  }
+}
+
+#box-10 {
+  background-color: rgb(93, 81, 171);
+
+  animation: infrot 2s linear 0s infinite;
+  animation-play-state: running;
+}
+
+#box-10:hover {
+  animation-play-state: paused;
+}
+
+/* keyframe per stabilire l'animazione */
+@keyframes infrot {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* loading animation*/
+
+#box-11 {
+  border-radius: 5%;
+  background-color: rgb(93, 81, 171);
+
+  animation: loader1 1.5s ease-in-out 0s infinite;
+  animation-play-state: running;
+}
+
+@keyframes loader1 {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    border-radius: 40%;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+#box-12 {
+  border-radius: 0%;
+  border: 5px solid rgb(60, 51, 117);
+  box-shadow: 0 0 16px rgb(127, 116, 203), 0 0 16px rgb(127, 116, 203) inset;
+
+  animation: loader2 1s cubic-bezier(0.7, 0, 0.5, 1) 0s infinite;
+  animation-play-state: running;
+}
+
+@keyframes loader2 {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    border-radius: 10%;
+  }
+  100% {
+    rotate: 180deg;
+  }
+}
+
+#box-13 {
+  border-radius: 0%;
+  background-color: rgb(60, 51, 117);
+  box-shadow: 0 0 10px rgb(127, 116, 203);
+
+  animation: loader3 1s ease-in-out 0s infinite;
+  animation-play-state: running;
+}
+
+@keyframes loader3 {
+  0% {
+    rotate: 0deg;
+    translate: 0px 0px;
+  }
+  50% {
+    border-radius: 50%;
+    translate: 0px -50px;
+    box-shadow: 10px 10px 30px rgb(187, 183, 209);
+  }
+  100% {
+    rotate: 180deg;
+    translate: 0px 0px;
+  }
+}
+
+#box-14 {
+  border-radius: 10%;
+  border: 5px solid rgb(60, 51, 117);
+  box-shadow: 0 0 20px rgb(127, 116, 203), 0 0 20px rgb(127, 116, 203) inset;
+
+  animation: loader4 3s ease-in-out 0s infinite;
+  animation-play-state: running;
+}
+
+@keyframes loader4 {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  33% {
+    transform: rotateX(180deg) rotateY(0deg) rotateZ(0deg);
+  }
+  66% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+    box-shadow: 0 0 20px rgb(127, 116, 203), 0 0 20px rgb(127, 116, 203) inset;
+  }
+  90% {
+    box-shadow: 0 0 20px rgb(187, 183, 209), 0 0 20px rgb(187, 183, 209) inset;
+  }
+  100% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(360deg);
+  }
+}
+
+#box-15 {
+  border-radius: 5%;
+  border: 5px solid rgb(8, 127, 225);
+  box-shadow: 0 0 15px rgba(76, 216, 255, 0.75),
+    0 0 15px rgb(76, 216, 255, 0.75) inset;
+
+  animation: loader5 1s ease-in-out 0s infinite;
+  animation-play-state: running;
+}
+
+@keyframes loader5 {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(0deg);
+  }
+}
