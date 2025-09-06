@@ -462,8 +462,7 @@ h2 {
 
 .block-8 {
   animation: scrolling8 both ease-in;
-  animation-timeline: view();
-  animation-range: entry 15vh cover 45vh;
+  animation-timeline: view(20% 20%);
   background-color: rgb(117, 126, 212);
 }
 
@@ -473,10 +472,15 @@ h2 {
     transform: translateY(100px);
   }
   30% {
-    opacity: 0.15;
-  }
-  100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
   }
 }
